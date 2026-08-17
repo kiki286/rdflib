@@ -79,7 +79,6 @@ from .xsd_datetime import (  # type: ignore[attr-defined]
 
 if TYPE_CHECKING:
     from .namespace import NamespaceManager
-    from .paths import AlternativePath, InvPath, NegatedPath, Path, SequencePath
 
 _HAS_HTML5RDF = False
 
@@ -2515,3 +2514,7 @@ def _isEqualXMLNode(  # noqa: N802
     else:
         # should not happen, in fact
         raise Exception(f"I dont know how to compare XML Node type: {node.nodeType}")
+
+
+# Make URIRef's property path annotations available to runtime introspection.
+from .paths import AlternativePath, InvPath, NegatedPath, Path, SequencePath  # isort: skip  # noqa: E402

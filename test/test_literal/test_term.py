@@ -4,6 +4,7 @@ some more specific Literal tests are in test_literal.py
 
 import base64
 import random
+from typing import get_type_hints
 
 from rdflib.graph import Graph, QuotedGraph
 from rdflib.namespace import XSD
@@ -33,6 +34,9 @@ class TestURIRefRepr:
         a = u > BNode()
         a = u > QuotedGraph(g.store, u)
         a = u > g  # noqa: F841
+
+    def test_type_hints(self):
+        assert get_type_hints(URIRef)
 
 
 class TestBNodeRepr:
